@@ -7,11 +7,11 @@ shinyUI(fluidPage(
   sidebarLayout(
     sidebarPanel(
 
-      numericInput("prior_mu", label = "Prior: μ", value = 72),
-      numericInput("prior_sigma", label = "Prior: σ", value = 10, min = 1e-6),
+      numericInput("y_data", label = "Observed data:", value = 56, step = 1L),
+      numericInput("data_sigma", label = "Known variance of data:", value = 20, min = 0, step = 1L),
       hr(),
-      numericInput("data_mu", label = "Data: μ", value = 68),
-      numericInput("data_sigma", label = "Data: σ", value = 20, min = 1e-6)
+      numericInput("prior_mu", label = "Prior μ:", value = 80, step = 1L),
+      numericInput("prior_sigma", label = "Prior σ:", value = 10, min = 0, step = 1L)
 
     ),
 
