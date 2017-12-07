@@ -1,14 +1,14 @@
-library('shiny')
-library('ggsci')
+library("shiny")
+library("ggsci")
 
 shinyServer(function(input, output) {
 
   output$dist_plot = renderPlot({
 
-    y_data      = input$'y_data'
-    data_sigma  = input$'data_sigma'
-    prior_mu    = input$'prior_mu'
-    prior_sigma = input$'prior_sigma'
+    y_data      = input$"y_data"
+    data_sigma  = input$"data_sigma"
+    prior_mu    = input$"prior_mu"
+    prior_sigma = input$"prior_sigma"
 
     if (data_sigma <= 0L | prior_sigma <= 0L) return(NULL)
 
@@ -30,16 +30,16 @@ shinyServer(function(input, output) {
 
     pal = rev(pal_lancet("lanonc")(3))
 
-    plot(y, y_prior, type = 'l', col = pal[1],
+    plot(y, y_prior, type = "l", col = pal[1],
          lty = 2, xlim = c(min(y), max(y)), ylim = c(0, y_max),
-         ylab = 'density', lwd = 2)
-    lines(y, y_lik,  type = 'l', col = pal[2], lwd = 2)
-    lines(y, y_post, type = 'l', col = pal[3], lwd = 2)
+         ylab = "density", lwd = 2)
+    lines(y, y_lik,  type = "l", col = pal[2], lwd = 2)
+    lines(y, y_post, type = "l", col = pal[3], lwd = 2)
     abline(v = y_data, col = pal[2], lty = 3, lwd = 2)
 
-    legend('topright', col = c(pal, pal[2]),
-           lty = c(2, 1, 1, 3), cex = 1.5, lwd = 2, bty = 'n',
-           legend = c('Prior', 'Likelihood', 'Posterior', 'Data'))
+    legend("topright", col = c(pal, pal[2]),
+           lty = c(2, 1, 1, 3), cex = 1.5, lwd = 2, bty = "n",
+           legend = c("Prior", "Likelihood", "Posterior", "Data"))
 
   })
 
