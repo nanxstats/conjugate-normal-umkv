@@ -6,7 +6,7 @@ shinyUI(fluidPage(
 
   sidebarLayout(
     sidebarPanel(
-      width = 2,
+      width = 3,
       numericInput("y_data", label = "Observed data:", value = 56, step = 1L),
       numericInput("data_sigma", label = "Known variance of data:", value = 20, min = 0, step = 1L),
       hr(),
@@ -14,7 +14,7 @@ shinyUI(fluidPage(
       numericInput("prior_sigma", label = "Prior σ:", value = 10, min = 0, step = 1L)
     ),
     mainPanel(
-      width = 10,
+      width = 9,
       plotOutput("dist_plot")
     )
   )
